@@ -13,4 +13,7 @@
     </tr>
     </tbody>
   </table>
+  <button class="btn btn-success" (click)="onEdit()" *ngIf="!editing">New</button>
+  <app-edit-genre *ngIf="editing"></app-edit-genre>
 </div>
+

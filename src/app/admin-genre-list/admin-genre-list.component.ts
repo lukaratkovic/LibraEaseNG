@@ -7,7 +7,13 @@ import {ApiService} from "../api.service";
   styleUrls: ['./admin-genre-list.component.css']
 })
 export class AdminGenreListComponent {
+  editing : boolean = false;
+
   constructor(public api : ApiService) {
     api.Update();
+  }
+
+  onEdit(){
+    this.editing = !this.editing;
   }
 }
