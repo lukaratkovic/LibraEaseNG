@@ -1,2 +1,13 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'library'}" [routerLink]="['']">Library</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'admin'}" [routerLink]="['admin']">Admin</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <router-outlet></router-outlet>
-<app-admin></app-admin>

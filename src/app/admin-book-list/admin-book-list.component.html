@@ -1,0 +1,24 @@
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ISBN</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Pages</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of api.books | bookBind">
+      <th scope="row">{{book.ISBN}}</th>
+      <td>{{book.Title}}</td>
+      <td>{{book.Author}}</td>
+      <td>{{book.Publisher}}</td>
+      <td>{{book.Genre}}</td>
+      <td>{{book.Pages}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

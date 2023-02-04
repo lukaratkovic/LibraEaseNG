@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ApiService} from "../api.service";
-import {Book} from "../model/book.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +8,7 @@ import {Book} from "../model/book.model";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  constructor(public api : ApiService) {
+  constructor(public router: Router, public api : ApiService) {
     api.Update();
   }
 }

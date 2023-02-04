@@ -1,0 +1,10 @@
+<div class="container">
+  <form [formGroup]="genreForm" id="genreForm">
+    <h1>Edit genre</h1>
+    <fieldset class="form-group">
+      <label>Genre:</label>
+      <input type="text" class="form-control" formControlName="username">
+    </fieldset>
+    <input type="submit" value="Save" class="btn btn-success mb-1" [disabled]="!genreForm.valid">
+  </form>
+</div>
