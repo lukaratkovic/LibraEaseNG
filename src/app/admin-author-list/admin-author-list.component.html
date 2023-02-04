@@ -1,1 +1,18 @@
-<p>admin-author-list works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let author of api.authors">
+      <th scope="row">{{author.idAuthor}}</th>
+      <td>{{author.Name}}</td>
+      <td>{{author.Surname}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

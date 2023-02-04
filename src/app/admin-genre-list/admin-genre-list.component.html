@@ -1,1 +1,16 @@
-<p>admin-genre-list works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Genre</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let genre of api.genres">
+      <th scope="row">{{genre.idGenre}}</th>
+      <td>{{genre.Genre}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

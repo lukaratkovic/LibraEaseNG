@@ -1,1 +1,16 @@
-<p>admin-publisher-list works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Publisher</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let publisher of api.publishers">
+      <th scope="row">{{publisher.idPublisher}}</th>
+      <td>{{publisher.Name}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

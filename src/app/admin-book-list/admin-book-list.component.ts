@@ -8,5 +8,6 @@ import {ApiService} from "../api.service";
 })
 export class AdminBookListComponent {
   constructor(public api : ApiService) {
+    api.Update();
   }
 }

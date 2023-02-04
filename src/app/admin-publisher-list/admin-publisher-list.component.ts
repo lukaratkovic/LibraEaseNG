@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ApiService} from "../api.service";
 
 @Component({
   selector: 'app-admin-publisher-list',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-publisher-list.component.css']
 })
 export class AdminPublisherListComponent {
-
+  constructor(public api : ApiService) {
+    api.Update();
+  }
 }

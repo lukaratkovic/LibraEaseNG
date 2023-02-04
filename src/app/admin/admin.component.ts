@@ -8,7 +8,5 @@ import {Router} from "@angular/router";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  constructor(public router: Router, public api : ApiService) {
-    api.Update();
-  }
+  constructor(public router: Router) {}
 }
