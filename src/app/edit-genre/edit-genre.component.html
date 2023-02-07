@@ -1,10 +1,11 @@
 <div class="container">
-  <form [formGroup]="genreForm" id="genreForm">
-    <h3>Edit genre</h3>
+  <form [formGroup]="genreForm" id="genreForm" (submit)="onSave()">
+    <h3>{{isEditing ? 'Edit' : 'New'}} genre</h3>
     <fieldset class="form-group">
       <label>Genre:</label>
-      <input type="text" class="form-control" formControlName="username">
+      <input type="text" class="form-control" formControlName="genre">
     </fieldset>
     <input type="submit" value="Save" class="btn btn-success mb-1" [disabled]="!genreForm.valid">
+    <input type="reset" value="Cancel" class="btn btn-danger mb-1" (click)="onFinish.emit()">
   </form>
 </div>

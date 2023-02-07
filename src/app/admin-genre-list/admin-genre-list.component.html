@@ -4,16 +4,21 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Genre</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let genre of api.genres">
       <th scope="row">{{genre.idGenre}}</th>
       <td>{{genre.Genre}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="onEdit(genre)"><i class="bi bi-pencil-square"></i></button>
+        <button class="btn btn-danger ms-1" (click)="delete(genre)"><i class="bi bi-trash"></i></button>
+      </td>
     </tr>
     </tbody>
   </table>
-  <button class="btn btn-success" (click)="onEdit()" *ngIf="!editing">New</button>
-  <app-edit-genre *ngIf="editing"></app-edit-genre>
+  <button class="btn btn-success" (click)="onNew()" *ngIf="!editVisible">New</button>
+  <app-edit-genre *ngIf="editVisible" (onFinish)="finishEdit()" [genre]="currentGenre" [isEditing]="isEditing"></app-edit-genre>
 </div>
 

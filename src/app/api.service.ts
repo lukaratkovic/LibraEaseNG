@@ -42,8 +42,18 @@ export class ApiService {
   private getGenres() : Observable<Genre[]>{
     return this.http.get<Genre[]>('http://localhost:8081/api/genre');
   }
+  public addGenre(genreName : string){
+    return this.http.post('http://localhost:8081/api/genre',{genre: genreName});
+  }
+  public editGenre(genre : Genre){
+    return this.http.put('http://localhost:8081/api/genre',{id: genre.idGenre, genre: genre.Genre});
+  }
+  public deleteGenre(idGenre : number){
+    return this.http.delete(`http://localhost:8081/api/genre/${idGenre}`);
+  }
 
   private getPublishers() : Observable<Publisher[]>{
     return this.http.get<Publisher[]>('http://localhost:8081/api/publisher');
   }
+
 }

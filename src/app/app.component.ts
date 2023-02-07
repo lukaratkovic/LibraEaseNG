@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'LibraEaseNG';
+  title = 'LibraEase';
   constructor(public router : Router) {
   }
 }
