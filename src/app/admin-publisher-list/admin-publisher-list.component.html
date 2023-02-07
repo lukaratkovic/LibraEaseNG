@@ -4,13 +4,20 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Publisher</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let publisher of api.publishers">
       <th scope="row">{{publisher.idPublisher}}</th>
       <td>{{publisher.Name}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="onEdit(publisher)"><i class="bi bi-pencil-square"></i></button>
+        <button class="btn btn-danger ms-1" (click)="delete(publisher)"><i class="bi bi-trash"></i></button>
+      </td>
     </tr>
     </tbody>
   </table>
+  <button class="btn btn-success" (click)="onNew()" *ngIf="!editVisible">New</button>
+  <app-edit-publisher *ngIf="editVisible" (onFinish)="finishEdit()" [publisher]="currentPublisher" [isEditing]="isEditing"></app-edit-publisher>
 </div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <form [formGroup]="publisherForm" id="publisherForm" (submit)="onSave()">
+    <h3>{{isEditing ? 'Edit' : 'New'}} publisher</h3>
+    <fieldset class="form-group">
+      <label>Publisher:</label>
+      <input type="text" class="form-control" formControlName="publisher">
+    </fieldset>
+    <input type="submit" value="Save" class="btn btn-success mb-1" [disabled]="!publisherForm.valid">
+    <input type="reset" value="Cancel" class="btn btn-danger mb-1" (click)="onFinish.emit()">
+  </form>
+</div>

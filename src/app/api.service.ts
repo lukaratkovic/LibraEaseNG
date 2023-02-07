@@ -55,5 +55,14 @@ export class ApiService {
   private getPublishers() : Observable<Publisher[]>{
     return this.http.get<Publisher[]>('http://localhost:8081/api/publisher');
   }
+  public addPublisher(publisherName : string){
+    return this.http.post('http://localhost:8081/api/publisher', {name: publisherName});
+  }
+  public editPublisher(publisher : Publisher){
+    return this.http.put('http://localhost:8081/api/publisher', {id: publisher.idPublisher, name: publisher.Name});
+  }
+  public deletePublisher(idPublisher : number){
+    return this.http.delete(`http://localhost:8081/api/publisher/${idPublisher}`);
+  }
 
 }
