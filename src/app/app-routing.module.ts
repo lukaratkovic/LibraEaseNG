@@ -8,10 +8,11 @@ import {AdminPublisherListComponent} from "./admin-publisher-list/admin-publishe
 import {AdminGenreListComponent} from "./admin-genre-list/admin-genre-list.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: 'library', pathMatch: 'full'},
-  {path: 'library', component: LibraryComponent},
+  {path: 'library', component: LibraryComponent, canActivate: [AuthGuard]},
   {
     path: 'admin',
     component: AdminComponent,
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path: 'authors', component: AdminAuthorListComponent},
       {path: 'publishers', component: AdminPublisherListComponent},
       {path: 'genres', component: AdminGenreListComponent}
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent}

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { BookBindPipe } from './book-bind.pipe';
 import { EditGenreComponent } from './edit-genre/edit-genre.component';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -18,6 +18,8 @@ import { EditAuthorComponent } from './edit-author/edit-author.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {AuthService} from "./auth.service";
+import {AuthInterceptor} from "./auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { RegisterComponent } from './register/register.component';
         HttpClientModule,
         ReactiveFormsModule
     ],
-  providers: [],
+  providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
