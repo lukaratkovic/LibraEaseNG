@@ -1,0 +1,37 @@
+<div class="container">
+  <form [formGroup]="bookForm" id="bookForm" (submit)="onSave()">
+    <h3>{{isEditing ? 'Edit' : 'New'}} book</h3>
+    <fieldset *ngIf="!isEditing">
+      <label>ISBN:</label>
+      <input type="number" class="form-control" formControlName="isbn">
+    </fieldset>
+    <fieldset>
+      <label>Title:</label>
+      <input type="text" class="form-control" formControlName="title">
+    </fieldset>
+    <fieldset>
+      <label>Author:</label>
+      <select class="form-control" formControlName="author">
+        <option *ngFor="let author of api.authors" [ngValue]="author.idAuthor">{{author.Name+" "+author.Surname}}</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label>Publisher:</label>
+      <select class="form-control" formControlName="publisher">
+        <option *ngFor="let publisher of api.publishers" [ngValue]="publisher.idPublisher">{{publisher.Name}}</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label>Genre:</label>
+      <select class="form-control" formControlName="genre">
+        <option *ngFor="let genre of api.genres" [ngValue]="genre.idGenre">{{genre.Genre}}</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label>Pages:</label>
+      <input type="number" class="form-control" formControlName="pages">
+    </fieldset>
+    <input type="submit" value="Save" class="btn btn-success mb-1" [disabled]="!bookForm.valid">
+    <input type="reset" value="Cancel" class="btn btn-danger mb-1" (click)="onFinish.emit()">
+  </form>
+</div>

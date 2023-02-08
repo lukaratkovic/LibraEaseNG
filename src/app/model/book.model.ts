@@ -1,16 +1,16 @@
 export class Book{
   ISBN: string;
   Title: string;
-  Pages: string;
+  Pages: number;
   Genre_idGenre: number;
-  Genre : string = "";
+  Genre ?: string = "";
   Author_idAuthor: number;
-  Author : string = "";
+  Author ?: string = "";
   Publisher_idPublisher: number;
-  Publisher : string = "";
+  Publisher ?: string = "";
 
 
-  constructor(ISBN: string, Title: string, Pages: string, idGenre: number, idAuthor: number, idPublisher: number) {
+  constructor(ISBN: string, Title: string, Pages: number, idGenre: number, idAuthor: number, idPublisher: number) {
     this.ISBN = ISBN;
     this.Title = Title;
     this.Pages = Pages;

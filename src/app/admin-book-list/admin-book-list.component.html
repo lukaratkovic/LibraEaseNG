@@ -8,6 +8,7 @@
       <th scope="col">Publisher</th>
       <th scope="col">Genre</th>
       <th scope="col">Pages</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -18,7 +19,13 @@
       <td>{{book.Publisher}}</td>
       <td>{{book.Genre}}</td>
       <td>{{book.Pages}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="onEdit(book)"><i class="bi bi-pencil-square"></i></button>
+        <button class="btn btn-danger ms-1" (click)="delete(book)"><i class="bi bi-trash"></i></button>
+      </td>
     </tr>
     </tbody>
   </table>
+  <button class="btn btn-success" (click)="onNew()" *ngIf="!editVisible">New</button>
+  <app-edit-book *ngIf="editVisible" (onFinish)="finishEdit()" [book]="currentBook" [isEditing]="isEditing"></app-edit-book>
 </div>
