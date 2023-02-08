@@ -16,6 +16,8 @@ import { AdminGenreListComponent } from './admin-genre-list/admin-genre-list.com
 import { EditPublisherComponent } from './edit-publisher/edit-publisher.component';
 import { EditAuthorComponent } from './edit-author/edit-author.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     AdminGenreListComponent,
     EditPublisherComponent,
     EditAuthorComponent,
-    EditBookComponent
+    EditBookComponent,
+    LoginComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,

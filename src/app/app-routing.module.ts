@@ -6,6 +6,8 @@ import {AdminBookListComponent} from "./admin-book-list/admin-book-list.componen
 import {AdminAuthorListComponent} from "./admin-author-list/admin-author-list.component";
 import {AdminPublisherListComponent} from "./admin-publisher-list/admin-publisher-list.component";
 import {AdminGenreListComponent} from "./admin-genre-list/admin-genre-list.component";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'library', pathMatch: 'full'},
@@ -20,7 +22,9 @@ const routes: Routes = [
       {path: 'publishers', component: AdminPublisherListComponent},
       {path: 'genres', component: AdminGenreListComponent}
     ]
-  }
+  },
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({

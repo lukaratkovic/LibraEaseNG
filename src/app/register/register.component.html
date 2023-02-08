@@ -1,0 +1,37 @@
+<div class="container">
+  <form class="text-center" [formGroup]="registerForm" (keyup)="checkRules()">
+    <h1 class="mb-5">Register</h1>
+    <fieldset class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control w-25 mx-auto mb-1 text-center" formControlName="username">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>E-mail</label>
+      <input type="email" class="form-control w-25 mx-auto mb-1 text-center" formControlName="email">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control w-25 mx-auto mb-1 text-center" formControlName="password">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Repeat password</label>
+      <input type="password" class="form-control w-25 mx-auto mb-2 text-center" formControlName="password2">
+    </fieldset>
+    <div class="register-error-message">
+      <div *ngIf="!registerForm.get('username')?.valid && !registerForm.get('username')?.untouched">
+        Username must be between 4 and 45 characters
+      </div>
+      <div *ngIf="!registerForm.get('email')?.valid && !registerForm.get('email')?.untouched">
+        E-mail is invalid
+      </div>
+      <div *ngIf="!registerForm.get('password')?.valid && !registerForm.get('password')?.untouched">
+        Password must have at least 6 characters
+      </div>
+      <div *ngIf="!passwordsMatch && !registerForm.get('password')?.untouched && !registerForm.get('password2')?.untouched">
+        Passwords must match
+      </div>
+    </div>
+    <input type="submit" value="Register" class="btn btn-success w-25" [disabled]="!registerForm.valid || !passwordsMatch">
+    <a [routerLink]="'/login'" class="d-block">Back to login</a>
+  </form>
+</div>
