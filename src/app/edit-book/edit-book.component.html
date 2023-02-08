@@ -2,7 +2,7 @@
   <form [formGroup]="bookForm" id="bookForm" (submit)="onSave()">
     <h3>{{isEditing ? 'Edit' : 'New'}} book</h3>
     <fieldset *ngIf="!isEditing">
-      <label>ISBN:</label>
+      <label>ISBN-13:</label>
       <input type="number" class="form-control" formControlName="isbn">
     </fieldset>
     <fieldset>
