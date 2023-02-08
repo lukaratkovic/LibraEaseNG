@@ -14,6 +14,7 @@ import { AdminAuthorListComponent } from './admin-author-list/admin-author-list.
 import { AdminPublisherListComponent } from './admin-publisher-list/admin-publisher-list.component';
 import { AdminGenreListComponent } from './admin-genre-list/admin-genre-list.component';
 import { EditPublisherComponent } from './edit-publisher/edit-publisher.component';
+import { EditAuthorComponent } from './edit-author/edit-author.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EditPublisherComponent } from './edit-publisher/edit-publisher.componen
     AdminAuthorListComponent,
     AdminPublisherListComponent,
     AdminGenreListComponent,
-    EditPublisherComponent
+    EditPublisherComponent,
+    EditAuthorComponent
   ],
     imports: [
         BrowserModule,

@@ -34,6 +34,15 @@ export class ApiService {
   private getAuthors() : Observable<Author[]>{
     return this.http.get<Author[]>('http://localhost:8081/api/author');
   }
+  public addAuthor(authorName: string, authorSurname: string){
+    return this.http.post('http://localhost:8081/api/author', {name: authorName, surname: authorSurname});
+  }
+  public editAuthor(author : Author){
+    return this.http.put('http://localhost:8081/api/author', {id: author.idAuthor, name: author.Name, surname: author.Surname});
+  }
+  public deleteAuthor(idAuthor : number){
+    return this.http.delete(`http://localhost:8081/api/author/${idAuthor}`);
+  }
 
   getAuthorById(id:number) : Observable<Author>{
     return this.http.get<Author>(`http://localhost:8081/api/author/${id}`);

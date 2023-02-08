@@ -5,6 +5,7 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Surname</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -12,7 +13,13 @@
       <th scope="row">{{author.idAuthor}}</th>
       <td>{{author.Name}}</td>
       <td>{{author.Surname}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="onEdit(author)"><i class="bi bi-pencil-square"></i></button>
+        <button class="btn btn-danger ms-1" (click)="delete(author)"><i class="bi bi-trash"></i></button>
+      </td>
     </tr>
     </tbody>
   </table>
+  <button class="btn btn-success" (click)="onNew()" *ngIf="!editVisible">New</button>
+  <app-edit-author *ngIf="editVisible" (onFinish)="finishEdit()" [author]="currentAuthor" [isEditing]="isEditing"></app-edit-author>
 </div>
