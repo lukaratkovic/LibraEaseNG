@@ -14,7 +14,12 @@
         <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'login'}" [routerLink]="['login']">Login</a>
       </li>
       <li class="nav-item ms-auto" *ngIf="auth.isAuthenticated()">
-        <a class="nav-link" (click)="auth.logout()" [routerLink]="['login']">Log out</a>
+        <a class="nav-link disabled" aria-disabled="true">Hello, {{auth.user?.username}}</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated()">
+        <a class="nav-link" (click)="auth.logout()" [routerLink]="['login']">
+          Log out
+        </a>
       </li>
     </ul>
   </div>
