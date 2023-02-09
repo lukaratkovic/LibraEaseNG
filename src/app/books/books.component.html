@@ -23,7 +23,7 @@
         <button class="btn btn-light" (click)="addToLibrary(book)" title="Add to Library" *ngIf="!inLibrary(book)">
           <i class="bi bi-book"></i>
         </button>
-        <button class="btn btn-light" (click)="removeFromLibrary(book)" title="Remove from Library" *ngIf="inLibrary(book)">
+        <button class="btn btn-light text-secondary" (click)="removeFromLibrary(book)" title="Remove from Library" *ngIf="inLibrary(book)">
           <i class="bi bi-book-fill"></i>
         </button>
       </td>
