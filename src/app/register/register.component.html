@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="text-center" [formGroup]="registerForm" (keyup)="checkRules()">
+  <form class="text-center" [formGroup]="registerForm" (keyup)="checkRules()" (submit)="register()">
     <h1 class="mb-5">Register</h1>
     <fieldset class="form-group">
       <label>Username</label>

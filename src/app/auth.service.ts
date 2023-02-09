@@ -37,6 +37,10 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
+  register(user: {username: string, password: string, email: string, level: number}){
+    return this.http.post('http://localhost:8081/auth/register', user);
+  }
+
   getToken(){
     if(this.token) return this.token;
     else {

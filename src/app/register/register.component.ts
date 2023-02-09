@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {User} from "../model/user.model";
+import {AuthService} from "../auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +14,7 @@ export class RegisterComponent {
   passwordsMatch: boolean = true;
   errorMessage : string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
 
   }
 
@@ -26,6 +29,11 @@ export class RegisterComponent {
 
   checkRules() {
     this.passwordsMatch = this.registerForm.value.password == this.registerForm.value.password2;
-    console.log(this.registerForm.get('username'));
+  }
+
+  register() {
+    let user = new User(-1, this.registerForm.value.username, this.registerForm.value.email, this.registerForm.value.password);
+    this.auth.register({username: this.registerForm.value.username, password: this.registerForm.value.password, email: this.registerForm.value.email, level: 2})
+      .subscribe(res => this.router.navigate(['/login']));
   }
 }
