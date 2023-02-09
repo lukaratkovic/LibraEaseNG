@@ -11,11 +11,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let book of api.books | bookBind">
-      <td><a [routerLink]="['/book',book.ISBN]">{{book.Title}}</a></td>
-      <td>{{book.Author}}</td>
-      <td>{{book.Genre}}</td>
-      <td>{{book.Pages}}</td>
-      <td *ngIf="auth.isAuthenticated()">
+      <td class="align-middle"><a [routerLink]="['/book',book.ISBN]">{{book.Title}}</a></td>
+      <td class="align-middle">{{book.Author}}</td>
+      <td class="align-middle">{{book.Genre}}</td>
+      <td class="align-middle">{{book.Pages}}</td>
+      <td *ngIf="auth.isAuthenticated()" class="align-middle">
         <button class="btn btn-light" (click)="addToLibrary(book)" title="Add to Library" *ngIf="!inLibrary(book)">
           <i class="bi bi-book"></i>
         </button>

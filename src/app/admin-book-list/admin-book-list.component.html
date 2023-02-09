@@ -13,13 +13,13 @@
     </thead>
     <tbody>
     <tr *ngFor="let book of api.books | bookBind">
-      <th scope="row">{{book.ISBN}}</th>
-      <td>{{book.Title}}</td>
-      <td>{{book.Author}}</td>
-      <td>{{book.Publisher}}</td>
-      <td>{{book.Genre}}</td>
-      <td>{{book.Pages}}</td>
-      <td>
+      <th scope="row" class="align-middle">{{book.ISBN}}</th>
+      <td class="align-middle">{{book.Title}}</td>
+      <td class="align-middle">{{book.Author}}</td>
+      <td class="align-middle">{{book.Publisher}}</td>
+      <td class="align-middle">{{book.Genre}}</td>
+      <td class="align-middle">{{book.Pages}}</td>
+      <td class="align-middle">
         <button class="btn btn-primary" (click)="onEdit(book)"><i class="bi bi-pencil-square"></i></button>
         <button class="btn btn-danger ms-1" (click)="delete(book)"><i class="bi bi-trash"></i></button>
       </td>

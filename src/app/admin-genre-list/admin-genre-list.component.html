@@ -9,9 +9,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let genre of api.genres">
-      <th scope="row">{{genre.idGenre}}</th>
-      <td>{{genre.Genre}}</td>
-      <td>
+      <th scope="row" class="align-middle">{{genre.idGenre}}</th>
+      <td class="align-middle">{{genre.Genre}}</td>
+      <td class="align-middle">
         <button class="btn btn-primary" (click)="onEdit(genre)"><i class="bi bi-pencil-square"></i></button>
         <button class="btn btn-danger ms-1" (click)="delete(genre)"><i class="bi bi-trash"></i></button>
       </td>

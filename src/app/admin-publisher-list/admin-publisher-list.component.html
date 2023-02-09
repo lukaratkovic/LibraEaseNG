@@ -9,9 +9,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let publisher of api.publishers">
-      <th scope="row">{{publisher.idPublisher}}</th>
-      <td>{{publisher.Name}}</td>
-      <td>
+      <th scope="row" class="align-middle">{{publisher.idPublisher}}</th>
+      <td class="align-middle">{{publisher.Name}}</td>
+      <td class="align-middle">
         <button class="btn btn-primary" (click)="onEdit(publisher)"><i class="bi bi-pencil-square"></i></button>
         <button class="btn btn-danger ms-1" (click)="delete(publisher)"><i class="bi bi-trash"></i></button>
       </td>

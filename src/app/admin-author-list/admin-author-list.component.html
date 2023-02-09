@@ -10,10 +10,10 @@
     </thead>
     <tbody>
     <tr *ngFor="let author of api.authors">
-      <th scope="row">{{author.idAuthor}}</th>
-      <td>{{author.Name}}</td>
-      <td>{{author.Surname}}</td>
-      <td>
+      <th scope="row" class="align-middle">{{author.idAuthor}}</th>
+      <td class="align-middle">{{author.Name}}</td>
+      <td class="align-middle">{{author.Surname}}</td>
+      <td class="align-middle">
         <button class="btn btn-primary" (click)="onEdit(author)"><i class="bi bi-pencil-square"></i></button>
         <button class="btn btn-danger ms-1" (click)="delete(author)"><i class="bi bi-trash"></i></button>
       </td>
