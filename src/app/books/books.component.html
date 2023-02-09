@@ -1,0 +1,33 @@
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ISBN-13</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Pages</th>
+      <th scope="col"  style="width: 5vw" *ngIf="auth.isAuthenticated()"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of api.books | bookBind">
+      <th scope="row">{{book.ISBN}}</th>
+      <td>{{book.Title}}</td>
+      <td>{{book.Author}}</td>
+      <td>{{book.Publisher}}</td>
+      <td>{{book.Genre}}</td>
+      <td>{{book.Pages}}</td>
+      <td *ngIf="auth.isAuthenticated()">
+        <button class="btn btn-light" (click)="addToLibrary(book)" title="Add to Library" *ngIf="!inLibrary(book)">
+          <i class="bi bi-book"></i>
+        </button>
+        <button class="btn btn-light" (click)="removeFromLibrary(book)" title="Remove from Library" *ngIf="inLibrary(book)">
+          <i class="bi bi-book-fill"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

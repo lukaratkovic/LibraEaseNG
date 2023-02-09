@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {AuthService} from "./auth.service";
 import {AuthInterceptor} from "./auth.interceptor";
+import { BooksComponent } from './books/books.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {AuthInterceptor} from "./auth.interceptor";
     EditAuthorComponent,
     EditBookComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BooksComponent
   ],
     imports: [
         BrowserModule,

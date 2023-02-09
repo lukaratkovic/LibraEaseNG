@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../auth.service";
+import {ApiService} from "../api.service";
 
 @Component({
   selector: 'app-library',
@@ -8,7 +9,7 @@ import {AuthService} from "../auth.service";
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent {
-  constructor(private router: Router, private auth: AuthService) {
+  constructor(private router: Router, public api: ApiService, private auth: AuthService) {
   }
 
   ngOnInit(){

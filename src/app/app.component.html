@@ -5,7 +5,10 @@
         <span class="nav-link navbar-brand">LibraEase</span>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'library'}" [routerLink]="['']">Library</a>
+        <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'books'}" [routerLink]="['books']">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'library'}" [routerLink]="['library']" *ngIf="auth.isAuthenticated()">My Library</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'admin'}" [routerLink]="['admin']" *ngIf="this.auth.user?.level == 1">Admin</a>

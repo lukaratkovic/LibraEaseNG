@@ -5,6 +5,9 @@ import {Observable} from "rxjs";
 import {Author} from "./model/author.model";
 import {Genre} from "./model/genre.model";
 import {Publisher} from "./model/publisher.model";
+import {User} from "./model/user.model";
+import {LibraryEntry} from "./model/libraryEntry.model";
+import {AuthService} from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +18,9 @@ export class ApiService {
   authors : Author[] = [];
   genres : Genre[] = [];
   publishers : Publisher[] = [];
+  library : LibraryEntry[] = [];
 
-  constructor(private http : HttpClient) {
+  constructor(private http : HttpClient, private auth: AuthService) {
     this.Update();
   }
 
@@ -25,6 +29,7 @@ export class ApiService {
     this.getAuthors().subscribe(res => this.authors = res);
     this.getGenres().subscribe(res => this.genres = res);
     this.getPublishers().subscribe(res => this.publishers = res);
+    this.getLibrary().subscribe(res => this.library = res);
   }
 
   private getBooks() : Observable<Book[]>{
@@ -81,5 +86,18 @@ export class ApiService {
   }
   public deletePublisher(idPublisher : number) {
     return this.http.delete(`http://localhost:8081/api/publisher/${idPublisher}`);
+  }
+
+  private getLibrary() : Observable<LibraryEntry[]>{
+    return this.http.get<LibraryEntry[]>(`http://localhost:8081/api/library`);
+  }
+  public addToLibrary(book: Book, user: User | undefined | null, existsInLibrary: boolean){
+    if(existsInLibrary)
+      return this.http.put('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN, progress: 0, status: 'reading'});
+    return this.http.post('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN});
+  }
+  public removeFromLibrary(book: Book, user: User | undefined | null){
+    //TODO: Change hardcoded progress: 0 value
+    return this.http.put('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN, progress: 0, status: 'inactive'});
   }
 }

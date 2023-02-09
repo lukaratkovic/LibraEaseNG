@@ -8,9 +8,11 @@ import {AdminPublisherListComponent} from "./admin-publisher-list/admin-publishe
 import {AdminGenreListComponent} from "./admin-genre-list/admin-genre-list.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {BooksComponent} from "./books/books.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'library', pathMatch: 'full'},
+  {path: '', redirectTo: 'books', pathMatch: 'full'},
+  {path: 'books', component: BooksComponent},
   {path: 'library', component: LibraryComponent},
   {
     path: 'admin',
