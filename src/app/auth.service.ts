@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {User} from "./model/user.model";
-import {BehaviorSubject, map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -63,7 +62,7 @@ export class AuthService {
           .subscribe(res => {
             if(res.status == 200){
               this.user = res.user;
-              resolve(true);
+              resolve(this.user?.level);
             }
             else resolve(false);
           });

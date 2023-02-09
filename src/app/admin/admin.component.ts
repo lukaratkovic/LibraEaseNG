@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {ApiService} from "../api.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-admin',
@@ -8,5 +8,23 @@ import {Router} from "@angular/router";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  constructor(public router: Router) {}
+  constructor(public router: Router, private auth: AuthService) {
+  }
+
+  ngOnInit(){
+    if(this.auth.isAuthenticated()){
+      if(this.auth.user?.level != 1) {
+        this.router.navigate(['library']);
+      }
+    }
+    else {
+      this.auth.whoAmI()
+        .then(res => {
+          if(res as number > 1)
+            this.router.navigate(['library']);
+          else
+            this.router.navigate(['login']);
+        });
+    }
+  }
 }

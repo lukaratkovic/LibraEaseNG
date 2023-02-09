@@ -8,7 +8,7 @@
         <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'library'}" [routerLink]="['']">Library</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'admin'}" [routerLink]="['admin']">Admin</a>
+        <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'admin'}" [routerLink]="['admin']" *ngIf="this.auth.user?.level == 1">Admin</a>
       </li>
       <li class="nav-item ms-auto" *ngIf="!auth.isAuthenticated()">
         <a class="nav-link" [ngClass]="{'active': this.router.url.toString().split('/')[1] == 'login'}" [routerLink]="['login']">Login</a>
