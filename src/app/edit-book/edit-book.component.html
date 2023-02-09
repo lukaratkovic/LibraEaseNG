@@ -35,6 +35,10 @@
       <label> Description:</label>
       <textarea class="form-control" formControlName="description"></textarea>
     </fieldset>
+    <fieldset>
+      <label>Cover URL:</label>
+      <input type="text" class="form-control" formControlName="coverURL">
+    </fieldset>
     <input type="submit" value="Save" class="btn btn-success mb-1" [disabled]="!bookForm.valid">
     <input type="reset" value="Cancel" class="btn btn-danger mb-1" (click)="onFinish.emit()">
   </form>

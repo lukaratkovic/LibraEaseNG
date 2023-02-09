@@ -9,6 +9,7 @@ export class Book{
   Publisher_idPublisher: number;
   Publisher ?: string = "";
   description: string = "";
+  coverURL : string = "";
 
 
   constructor(ISBN: string, Title: string, Pages: number, idGenre: number, idAuthor: number, idPublisher: number) {

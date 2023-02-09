@@ -28,7 +28,8 @@ export class EditBookComponent {
       'publisher': new FormControl(this.isEditing ? this.book.Publisher_idPublisher : '', Validators.required),
       'genre': new FormControl(this.isEditing ? this.book.Genre_idGenre : '', Validators.required),
       'pages': new FormControl(this.isEditing ? this.book.Pages : '', [Validators.required, Validators.min(1)]),
-      'description': new FormControl(this.isEditing ? this.book.description : '', [Validators.maxLength(2048)])
+      'description': new FormControl(this.isEditing ? this.book.description : '', [Validators.maxLength(2048)]),
+      'coverURL': new FormControl(this.isEditing ? this.book.coverURL : '')
     });
   }
 
@@ -41,6 +42,7 @@ export class EditBookComponent {
     this.bookForm.controls['genre'].setValue(this.book.Genre_idGenre);
     this.bookForm.controls['pages'].setValue(this.book.Pages);
     this.bookForm.controls['description'].setValue(this.book.description);
+    this.bookForm.controls['coverURL'].setValue(this.book.coverURL);
   }
 
   onSave() {
@@ -51,7 +53,8 @@ export class EditBookComponent {
       idGenre: this.bookForm.value.genre,
       idAuthor: this.bookForm.value.author,
       idPublisher: this.bookForm.value.publisher,
-      Description: this.bookForm.value.description
+      Description: this.bookForm.value.description,
+      coverURL: this.bookForm.value.coverURL
     };
     if(this.isEditing){
       this.api.editBook(book)
