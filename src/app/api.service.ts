@@ -44,6 +44,9 @@ export class ApiService {
   public deleteBook(ISBN: string) {
     return this.http.delete(`http://localhost:8081/api/book/${ISBN}`);
   }
+  public getBookByISBN(ISBN: string) : Observable<Book>{
+    return this.http.get<Book>(`http://localhost:8081/api/book/${ISBN}`);
+  }
 
   private getAuthors() : Observable<Author[]>{
     return this.http.get<Author[]>('http://localhost:8081/api/author');
