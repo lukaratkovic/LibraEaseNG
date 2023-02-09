@@ -35,10 +35,10 @@ export class ApiService {
   private getBooks() : Observable<Book[]>{
     return this.http.get<Book[]>('http://localhost:8081/api/book');
   }
-  public addBook(book: { pages: any; idGenre: any; ISBN: number; idPublisher: any; idAuthor: any; title: any }) {
+  public addBook(book: { pages: any; idGenre: any; ISBN: number; idPublisher: any; idAuthor: any; title: any, Description: string }) {
     return this.http.post('http://localhost:8081/api/book',book);
   }
-  public editBook(book: { pages: any; idGenre: any; ISBN: number; idPublisher: any; idAuthor: any; title: any }){
+  public editBook(book: { pages: any; idGenre: any; ISBN: number; idPublisher: any; idAuthor: any; title: any, Description: string }){
     return this.http.put('http://localhost:8081/api/book', book);
   }
   public deleteBook(ISBN: string) {

@@ -31,6 +31,10 @@
       <label>Pages:</label>
       <input type="number" class="form-control" formControlName="pages">
     </fieldset>
+    <fieldset>
+      <label> Description:</label>
+      <textarea class="form-control" formControlName="description"></textarea>
+    </fieldset>
     <input type="submit" value="Save" class="btn btn-success mb-1" [disabled]="!bookForm.valid">
     <input type="reset" value="Cancel" class="btn btn-danger mb-1" (click)="onFinish.emit()">
   </form>
