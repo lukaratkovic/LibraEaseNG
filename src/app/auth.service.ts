@@ -8,7 +8,7 @@ import {BehaviorSubject, map, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
-  private user : any;
+  user : any;
   private token : any;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -21,6 +21,7 @@ export class AuthService {
           if(res.status == 200){
             this.user = res.user;
             this.token = res.token;
+            console.log(this.user);
             if (typeof this.token === "string") {
               localStorage.setItem('token', this.token);
             }
@@ -64,6 +65,6 @@ export class AuthService {
             else resolve(false);
           });
       }
-    })
+    });
   }
 }

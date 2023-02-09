@@ -11,8 +11,4 @@ export class AppComponent {
   title = 'LibraEase';
   constructor(public router : Router, public auth: AuthService) {
   }
-
-  ngOnInit(){
-    this.auth.whoAmI();
-  }
 }

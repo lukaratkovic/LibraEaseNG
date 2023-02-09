@@ -2,10 +2,10 @@ export class User{
   idUser : number;
   Username : string;
   Email : string;
-  level : string;
+  level : number;
 
 
-  constructor(idUser: number, Username: string, Email: string, level: string) {
+  constructor(idUser: number, Username: string, Email: string, level: number) {
     this.idUser = idUser;
     this.Username = Username;
     this.Email = Email;
