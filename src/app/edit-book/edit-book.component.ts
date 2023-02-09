@@ -60,8 +60,8 @@ export class EditBookComponent {
     else{
       let valid = true;
       //Check if book with given ISBN exists already
-      this.api.books.forEach((book)=>{
-        if(book.ISBN == book.ISBN){
+      this.api.books.forEach((b)=>{
+        if(book.ISBN == b.ISBN){
           Swal.mixin({
             toast: true,
             position: 'bottom-end',

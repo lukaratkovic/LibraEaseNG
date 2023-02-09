@@ -22,7 +22,7 @@ export class AdminComponent {
         .then(res => {
           if(res as number > 1)
             this.router.navigate(['library']);
-          else
+          else if(!res)
             this.router.navigate(['login']);
         });
     }
