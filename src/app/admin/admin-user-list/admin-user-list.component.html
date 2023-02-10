@@ -5,7 +5,7 @@
       <th scope="col">Username</th>
       <th scope="col">Email</th>
       <th scope="col">Level</th>
-      <th style="width: 5vw"></th>
+      <th style="width: 10vw"></th>
     </tr>
     </thead>
     <tbody>
@@ -18,11 +18,15 @@
         </button>
       </td>
       <td class="align-middle">
-        <button class="btn btn-danger" (click)="deleteUser(user)">
+        <button class="btn btn-primary" (click)="onEdit(user)">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button class="btn btn-danger ms-1" (click)="deleteUser(user)" *ngIf="auth.user?.idUser != user.idUser">
           <i class="bi bi-trash"></i>
         </button>
       </td>
     </tr>
     </tbody>
   </table>
+  <app-edit-user [user]="currentUser" (onFinish)="finishEdit()" *ngIf="editing"></app-edit-user>
 </div>

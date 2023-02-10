@@ -12,6 +12,8 @@ import Swal from "sweetalert2";
 })
 export class AdminUserListComponent {
   users !: User[];
+  currentUser !: User;
+  editing : boolean = false;
 
   constructor(public api : ApiService, public auth: AuthService) {
     api.Update();
@@ -46,5 +48,14 @@ export class AdminUserListComponent {
         this.api.getUsers()
           .subscribe(res => this.users = res);
       });
+  }
+
+  onEdit(user: User) {
+    this.currentUser = user;
+    this.editing = true;
+  }
+
+  finishEdit() {
+    this.editing = false;
   }
 }

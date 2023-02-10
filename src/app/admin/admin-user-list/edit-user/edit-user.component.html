@@ -1,0 +1,15 @@
+<div class="container">
+  <form [formGroup]="userForm" (submit)="onSave()">
+    <h3>Edit user</h3>
+    <fieldset class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" formControlName="username">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>E-mail</label>
+      <input type="email" class="form-control" formControlName="email">
+    </fieldset>
+    <input type="submit" value="Save" class="btn btn-success mb-1" [disabled]="!userForm.valid">
+    <input type="reset" value="Cancel" class="btn btn-danger mb-1" (click)="onFinish.emit()">
+  </form>
+</div>

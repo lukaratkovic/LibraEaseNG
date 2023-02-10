@@ -27,6 +27,7 @@ import { LibraryStatusPipe } from './shared/pipes/library-status.pipe';
 import { ProgressEditComponent } from './library/progress-edit/progress-edit.component';
 import { SortingPipe } from './shared/pipes/sorting.pipe';
 import { AdminUserListComponent } from './admin/admin-user-list/admin-user-list.component';
+import { EditUserComponent } from './admin/admin-user-list/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AdminUserListComponent } from './admin/admin-user-list/admin-user-list.
     LibraryStatusPipe,
     ProgressEditComponent,
     SortingPipe,
-    AdminUserListComponent
+    AdminUserListComponent,
+    EditUserComponent
   ],
     imports: [
         BrowserModule,
