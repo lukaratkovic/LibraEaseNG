@@ -10,6 +10,7 @@ import {ApiService} from "../api.service";
 })
 export class LibraryComponent {
   constructor(private router: Router, public api: ApiService, private auth: AuthService) {
+    api.Update();
   }
 
   ngOnInit(){

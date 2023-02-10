@@ -28,7 +28,7 @@ export class BooksComponent {
     //Check if book exists in library but is inactive
     let exists = false;
     this.api.library.forEach(entry => {
-      if(entry.Book_ISBN == book.ISBN) exists = true;
+      if(entry.Book_ISBN == book.ISBN && entry.User_idUser==this.auth.user?.idUser) exists = true;
     });
     this.api.addToLibrary(book, this.auth.user, exists)
       .subscribe(res => {
@@ -39,7 +39,7 @@ export class BooksComponent {
   inLibrary(book: Book) {
     let exists = false;
     this.api.library.forEach(entry => {
-      if(entry.Book_ISBN == book.ISBN && entry.status != 'inactive') exists = true;
+      if(entry.Book_ISBN == book.ISBN && entry.User_idUser == this.auth.user?.idUser && entry.status != 'inactive') exists = true;
     });
     return exists;
   }
