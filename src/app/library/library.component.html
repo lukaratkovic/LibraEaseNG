@@ -1,3 +1,28 @@
-<p *ngFor="let libEntry of api.library">
-  {{libEntry.Book_ISBN}}
-</p>
+<div class="container mt-3" *ngIf="api.library">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Cover</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Progress</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let libEntry of api.library | libOfUser: auth.user | libraryStatus: 'all'">
+      <td class="align-middle">
+        <img src="{{libEntry.coverURL}}" alt="Cover">
+      </td>
+      <td class="align-middle">
+        {{libEntry.Title}}
+      </td>
+      <td class="align-middle">
+        {{libEntry.AuthorName}} {{libEntry.AuthorSurname}}
+      </td>
+      <td class="align-middle">
+        {{libEntry.Progress}}/{{libEntry.Pages}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

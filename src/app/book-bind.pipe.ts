@@ -20,7 +20,7 @@ export class BookBindPipe implements PipeTransform {
       this.api.publishers.forEach(publisher => {
         if(publisher.idPublisher == book.Publisher_idPublisher)
           book.Publisher = publisher.Name;
-      })
+      });
       this.api.genres.forEach(genre => {
         if(genre.idGenre == book.Genre_idGenre)
           book.Genre = genre.Genre;
