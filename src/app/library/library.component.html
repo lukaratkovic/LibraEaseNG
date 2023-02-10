@@ -5,22 +5,30 @@
       <th scope="col">Cover</th>
       <th scope="col">Title</th>
       <th scope="col">Author</th>
-      <th scope="col">Progress</th>
+      <th scope="col" style="width: 20vw">Progress</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let libEntry of api.library | libOfUser: auth.user | libraryStatus: 'all'">
       <td class="align-middle">
-        <img src="{{libEntry.coverURL}}" alt="Cover">
+        <a [routerLink]="['/book',libEntry.Book_ISBN]">
+          <img src="{{libEntry.coverURL}}" alt="Cover">
+        </a>
       </td>
       <td class="align-middle">
-        {{libEntry.Title}}
+        <a [routerLink]="['/book',libEntry.Book_ISBN]">{{libEntry.Title}}</a>
       </td>
       <td class="align-middle">
         {{libEntry.AuthorName}} {{libEntry.AuthorSurname}}
       </td>
       <td class="align-middle">
-        {{libEntry.Progress}}/{{libEntry.Pages}}
+        <div *ngIf="!editingISBNs.includes(libEntry.Book_ISBN)" (click)="edit(libEntry.Book_ISBN)">
+          <span class="edit-progress">{{libEntry.Progress}}/{{libEntry.Pages}}</span>
+        </div>
+        <app-progress-edit [progress]="libEntry.Progress" [pages]="libEntry.Pages" [ISBN]="libEntry.Book_ISBN"
+                           *ngIf="editingISBNs.includes(libEntry.Book_ISBN)"
+                           (onFinish)="finishEdit(libEntry.Book_ISBN)">
+        </app-progress-edit>
       </td>
     </tr>
     </tbody>

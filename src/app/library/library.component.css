@@ -2,3 +2,22 @@ img{
   max-width: 100%;
   max-height: 50px;
 }
+a:link{
+  text-decoration: none;
+  color: black;
+}
+a:visited{
+  color: black;
+}
+a:hover {
+  color: #565656;
+}
+.edit-progress{
+  padding: 1px 5px;
+  cursor: pointer;
+}
+.edit-progress:hover{
+  background-color: lightgrey;
+  box-shadow: 0 0 5px 5px lightgrey;
+  border-radius: 25px;
+}

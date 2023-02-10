@@ -94,13 +94,12 @@ export class ApiService {
   private getLibrary() : Observable<LibraryEntry[]>{
     return this.http.get<LibraryEntry[]>(`http://localhost:8081/api/library`);
   }
-  public addToLibrary(book: Book, user: User | undefined | null, existsInLibrary: boolean){
+  public addToLibrary(book: Book, user: User | undefined | null, existsInLibrary: boolean, progress=0){
     if(existsInLibrary)
-      return this.http.put('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN, progress: 0, status: 'reading'});
+      return this.http.put('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN, progress: progress, status: 'reading'});
     return this.http.post('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN});
   }
   public removeFromLibrary(book: Book, user: User | undefined | null){
-    //TODO: Change hardcoded progress: 0 value
-    return this.http.put('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN, progress: 0, status: 'inactive'});
+    return this.http.put('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN, status: 'inactive'});
   }
 }

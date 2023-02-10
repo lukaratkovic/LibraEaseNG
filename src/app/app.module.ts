@@ -24,6 +24,7 @@ import { BooksComponent } from './books/books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { LibOfUserPipe } from './lib-of-user.pipe';
 import { LibraryStatusPipe } from './library-status.pipe';
+import { ProgressEditComponent } from './library/progress-edit/progress-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LibraryStatusPipe } from './library-status.pipe';
     BooksComponent,
     BookDetailsComponent,
     LibOfUserPipe,
-    LibraryStatusPipe
+    LibraryStatusPipe,
+    ProgressEditComponent
   ],
     imports: [
         BrowserModule,

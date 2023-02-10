@@ -1,0 +1,8 @@
+<form [formGroup]="progressForm" id="progressForm" (submit)="save()">
+  <fieldset class="form-group">
+    <input type="number" class="form-control d-inline" formControlName="progress">/{{pages}}
+    <button class="btn btn-light" type="submit" [disabled]="!progressForm.valid">
+      <i class="bi bi-check-square"></i>
+    </button>
+  </fieldset>
+</form>

@@ -12,6 +12,8 @@ import {BookBindPipe} from "../book-bind.pipe";
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent {
+  editingISBNs : string[] = [];
+
   constructor(private router: Router, public api: ApiService, public auth: AuthService) {
     api.Update();
   }
@@ -24,5 +26,13 @@ export class LibraryComponent {
             this.router.navigate(['login']);
         });
     }
+  }
+
+  edit(Book_ISBN: string) {
+    this.editingISBNs.push(Book_ISBN);
+  }
+
+  finishEdit(Book_ISBN: string) {
+    this.editingISBNs.splice(this.editingISBNs.indexOf(Book_ISBN),1);
   }
 }
