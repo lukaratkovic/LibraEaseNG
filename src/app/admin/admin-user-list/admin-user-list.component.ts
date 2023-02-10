@@ -39,4 +39,12 @@ export class AdminUserListComponent {
       }
     });
   }
+
+  deleteUser(user: User) {
+    this.api.deleteUser(user.idUser)
+      .subscribe((res)=> {
+        this.api.getUsers()
+          .subscribe(res => this.users = res);
+      });
+  }
 }

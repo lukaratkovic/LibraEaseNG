@@ -109,4 +109,7 @@ export class ApiService {
   public editUser(user: User){
     return this.http.put('http://localhost:8081/api/user',user);
   }
+  public deleteUser(idUser:number){
+    return this.http.delete(`http://localhost:8081/api/user/${idUser}`);
+  }
 }
