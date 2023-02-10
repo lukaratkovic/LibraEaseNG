@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './shared/app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -26,6 +26,7 @@ import { LibOfUserPipe } from './shared/pipes/lib-of-user.pipe';
 import { LibraryStatusPipe } from './shared/pipes/library-status.pipe';
 import { ProgressEditComponent } from './library/progress-edit/progress-edit.component';
 import { SortingPipe } from './shared/pipes/sorting.pipe';
+import { AdminUserListComponent } from './admin/admin-user-list/admin-user-list.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SortingPipe } from './shared/pipes/sorting.pipe';
     LibOfUserPipe,
     LibraryStatusPipe,
     ProgressEditComponent,
-    SortingPipe
+    SortingPipe,
+    AdminUserListComponent
   ],
     imports: [
         BrowserModule,

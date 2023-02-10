@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Level</th>
+      <th style="width: 10vw"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td class="align-middle">{{user.username}}</td>
+      <td class="align-middle">{{user.email}}</td>
+      <td class="align-middle">
+        <button class="btn w-25" [ngClass]="{'btn-primary':user.level == 1, 'btn-success':user.level == 2}" [disabled]="auth.user?.idUser == user.idUser" (click)="toggleAdmin(user)">
+          {{user.level == 1 ? 'Admin' : 'User'}}
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

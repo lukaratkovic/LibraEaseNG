@@ -102,4 +102,11 @@ export class ApiService {
   public removeFromLibrary(book: Book, user: User | undefined | null){
     return this.http.put('http://localhost:8081/api/library',{idUser: user?.idUser, ISBN: book.ISBN, status: 'inactive'});
   }
+
+  public getUsers() : Observable<User[]>{
+    return this.http.get<User[]>('http://localhost:8081/api/user');
+  }
+  public editUser(user: User){
+    return this.http.put('http://localhost:8081/api/user',user);
+  }
 }
