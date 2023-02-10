@@ -23,7 +23,7 @@
         <a class="nav-link disabled" aria-disabled="true">Hello, {{auth.user?.username}}</a>
       </li>
       <li class="nav-item" *ngIf="auth.isAuthenticated()">
-        <a class="nav-link" (click)="auth.logout()" [routerLink]="['login']">
+        <a class="nav-link" (click)="auth.logout()" [routerLink]="['/books']">
           Log out
         </a>
       </li>
