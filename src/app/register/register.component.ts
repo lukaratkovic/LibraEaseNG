@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../model/user.model";
-import {AuthService} from "../auth.service";
+import {User} from "../shared/model/user.model";
+import {AuthService} from "../shared/services/auth.service";
 import {Router} from "@angular/router";
 
 @Component({

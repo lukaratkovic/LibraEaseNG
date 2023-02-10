@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Book} from "./model/book.model";
-import {ApiService} from "./api.service";
+import {Book} from "../model/book.model";
+import {ApiService} from "../services/api.service";
 
 @Pipe({
   name: 'bookBind'

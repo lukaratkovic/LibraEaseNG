@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Book} from "./model/book.model";
+import {Book} from "../model/book.model";
 import {Observable} from "rxjs";
-import {Author} from "./model/author.model";
-import {Genre} from "./model/genre.model";
-import {Publisher} from "./model/publisher.model";
-import {User} from "./model/user.model";
-import {LibraryEntry} from "./model/libraryEntry.model";
+import {Author} from "../model/author.model";
+import {Genre} from "../model/genre.model";
+import {Publisher} from "../model/publisher.model";
+import {User} from "../model/user.model";
+import {LibraryEntry} from "../model/libraryEntry.model";
 import {AuthService} from "./auth.service";
 
 @Injectable({

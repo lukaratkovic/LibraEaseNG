@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiService} from "../../api.service";
-import {AuthService} from "../../auth.service";
+import {ApiService} from "../../shared/services/api.service";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-progress-edit',

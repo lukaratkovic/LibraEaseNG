@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {ApiService} from "../api.service";
-import {Publisher} from "../model/publisher.model";
+import {ApiService} from "../../shared/services/api.service";
+import {Publisher} from "../../shared/model/publisher.model";
 import Swal from "sweetalert2";
 
 @Component({

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Author} from "../model/author.model";
-import {ApiService} from "../api.service";
+import {Author} from "../../../shared/model/author.model";
+import {ApiService} from "../../../shared/services/api.service";
 
 @Component({
   selector: 'app-edit-author',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../auth.service";
+import {AuthService} from "../shared/services/auth.service";
 import {Router} from "@angular/router";
 import {Observable, Subscription} from "rxjs";
 import Swal from "sweetalert2";

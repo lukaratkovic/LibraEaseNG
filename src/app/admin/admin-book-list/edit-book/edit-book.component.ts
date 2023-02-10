@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Book} from "../model/book.model";
-import {ApiService} from "../api.service";
+import {Book} from "../../../shared/model/book.model";
+import {ApiService} from "../../../shared/services/api.service";
 import Swal from "sweetalert2";
 
 @Component({

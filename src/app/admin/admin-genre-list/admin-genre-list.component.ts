@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
-import {ApiService} from "../api.service";
-import {Genre} from "../model/genre.model";
+import {ApiService} from "../../shared/services/api.service";
+import {Genre} from "../../shared/model/genre.model";
 
 @Component({
   selector: 'app-admin-genre-list',

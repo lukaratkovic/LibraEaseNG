@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {LibraryEntry} from "./model/libraryEntry.model";
+import {LibraryEntry} from "../model/libraryEntry.model";
 
 @Pipe({
   name: 'libraryStatus'

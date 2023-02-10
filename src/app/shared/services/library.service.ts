@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Book} from "./model/book.model";
+import {Book} from "../model/book.model";
 import {ApiService} from "./api.service";
 import {AuthService} from "./auth.service";
 import {Router} from "@angular/router";

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiService} from "../api.service";
-import {Genre} from "../model/genre.model";
+import {ApiService} from "../../../shared/services/api.service";
+import {Genre} from "../../../shared/model/genre.model";
 
 @Component({
   selector: 'app-edit-genre',

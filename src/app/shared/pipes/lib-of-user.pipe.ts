@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {LibraryEntry} from "./model/libraryEntry.model";
-import {User} from "./model/user.model";
+import {LibraryEntry} from "../model/libraryEntry.model";
+import {User} from "../model/user.model";
 
 @Pipe({
   name: 'libOfUser'

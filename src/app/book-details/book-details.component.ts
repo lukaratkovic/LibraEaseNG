@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ApiService} from "../api.service";
-import {AuthService} from "../auth.service";
-import {Book} from "../model/book.model";
-import {BookBindPipe} from '../book-bind.pipe';
-import {LibraryService} from "../library.service";
+import {ApiService} from "../shared/services/api.service";
+import {AuthService} from "../shared/services/auth.service";
+import {Book} from "../shared/model/book.model";
+import {BookBindPipe} from '../shared/pipes/book-bind.pipe';
+import {LibraryService} from "../shared/services/library.service";
 
 @Component({
   selector: 'app-book-details',

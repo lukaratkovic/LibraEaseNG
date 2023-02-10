@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {ApiService} from "../api.service";
-import {AuthService} from "../auth.service";
+import {ApiService} from "../shared/services/api.service";
+import {AuthService} from "../shared/services/auth.service";
 import {Router} from "@angular/router";
-import {Book} from "../model/book.model";
-import {LibraryService} from "../library.service";
+import {Book} from "../shared/model/book.model";
+import {LibraryService} from "../shared/services/library.service";
 
 @Component({
   selector: 'app-books',
