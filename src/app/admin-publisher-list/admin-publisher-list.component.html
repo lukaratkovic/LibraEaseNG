@@ -2,14 +2,12 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col" style="width: 10vw">ID</th>
       <th scope="col">Publisher</th>
       <th style="width: 10vw"></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let publisher of api.publishers">
-      <th scope="row" class="align-middle">{{publisher.idPublisher}}</th>
       <td class="align-middle">{{publisher.Name}}</td>
       <td class="align-middle">
         <button class="btn btn-primary" (click)="onEdit(publisher)"><i class="bi bi-pencil-square"></i></button>

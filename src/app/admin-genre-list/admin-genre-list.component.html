@@ -2,14 +2,12 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col" style="width: 10vw">ID</th>
       <th scope="col">Genre</th>
       <th style="width: 10vw"></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let genre of api.genres">
-      <th scope="row" class="align-middle">{{genre.idGenre}}</th>
       <td class="align-middle">{{genre.Genre}}</td>
       <td class="align-middle">
         <button class="btn btn-primary" (click)="onEdit(genre)"><i class="bi bi-pencil-square"></i></button>

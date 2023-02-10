@@ -2,7 +2,6 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col" style="width: 10vw">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Surname</th>
       <th style="width: 10vw"></th>
@@ -10,7 +9,6 @@
     </thead>
     <tbody>
     <tr *ngFor="let author of api.authors">
-      <th scope="row" class="align-middle">{{author.idAuthor}}</th>
       <td class="align-middle">{{author.Name}}</td>
       <td class="align-middle">{{author.Surname}}</td>
       <td class="align-middle">
