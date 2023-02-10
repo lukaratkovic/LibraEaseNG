@@ -2,6 +2,7 @@
   <table class="table">
     <thead>
     <tr>
+      <th scope="col">Cover</th>
       <th scope="col">Title</th>
       <th scope="col">Author</th>
       <th scope="col">Genre</th>
@@ -11,6 +12,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let book of api.books | bookBind">
+      <td class="align-middle">
+        <a [routerLink]="['/book',book.ISBN]">
+          <img src="{{book.coverURL}}" alt="Cover">
+        </a>
+      </td>
       <td class="align-middle"><a [routerLink]="['/book',book.ISBN]">{{book.Title}}</a></td>
       <td class="align-middle">{{book.Author}}</td>
       <td class="align-middle">{{book.Genre}}</td>

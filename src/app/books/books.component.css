@@ -9,3 +9,7 @@ a:visited{
 a:hover {
   color: #565656;
 }
+img{
+  max-width: 100%;
+  max-height: 50px;
+}
