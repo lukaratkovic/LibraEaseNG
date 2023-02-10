@@ -22,8 +22,10 @@
         {{libEntry.AuthorName}} {{libEntry.AuthorSurname}}
       </td>
       <td class="align-middle">
-        <div *ngIf="!editingISBNs.includes(libEntry.Book_ISBN)" (click)="edit(libEntry.Book_ISBN)">
-          <span class="edit-progress">{{libEntry.Progress}}/{{libEntry.Pages}}</span>
+        <div *ngIf="!editingISBNs.includes(libEntry.Book_ISBN)">
+          <span class="edit-progress" (click)="edit(libEntry.Book_ISBN)">
+            {{libEntry.Progress}}/{{libEntry.Pages}}
+          </span>
         </div>
         <app-progress-edit [progress]="libEntry.Progress" [pages]="libEntry.Pages" [ISBN]="libEntry.Book_ISBN"
                            *ngIf="editingISBNs.includes(libEntry.Book_ISBN)"
