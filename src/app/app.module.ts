@@ -22,6 +22,7 @@ import {AuthService} from "./auth.service";
 import {AuthInterceptor} from "./auth.interceptor";
 import { BooksComponent } from './books/books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { LibOfUserPipe } from './lib-of-user.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     LoginComponent,
     RegisterComponent,
     BooksComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    LibOfUserPipe
   ],
     imports: [
         BrowserModule,
