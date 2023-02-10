@@ -9,7 +9,7 @@
           <h3>{{book.Title}}</h3>
           <p>by <b>{{book.Author}}</b></p>
         </div>
-        <div class="col-3 d-flex align-items-center">
+        <div class="col-3 d-flex align-items-center" *ngIf="auth.isAuthenticated()">
           <button class="btn btn-success w-100" *ngIf="!library.inLibrary(book)" (click)="library.addToLibrary(book)">
             <i class="bi bi-book"></i> Add to Library
           </button>

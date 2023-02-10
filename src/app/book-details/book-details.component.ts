@@ -14,7 +14,7 @@ import {LibraryService} from "../shared/services/library.service";
 export class BookDetailsComponent {
   book !: Book;
 
-  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private auth: AuthService, public library: LibraryService) {
+  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, public auth: AuthService, public library: LibraryService) {
     this.api.Update();
   }
 
