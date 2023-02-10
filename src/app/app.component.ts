@@ -10,10 +10,4 @@ import {Location} from '@angular/common';
 })
 export class AppComponent {
   title = 'LibraEase';
-  constructor(public router : Router, public auth: AuthService, private location: Location) {
-  }
-
-  back() {
-    this.location.back();
-  }
 }

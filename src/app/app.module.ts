@@ -28,6 +28,7 @@ import { ProgressEditComponent } from './library/progress-edit/progress-edit.com
 import { SortingPipe } from './shared/pipes/sorting.pipe';
 import { AdminUserListComponent } from './admin/admin-user-list/admin-user-list.component';
 import { EditUserComponent } from './admin/admin-user-list/edit-user/edit-user.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { EditUserComponent } from './admin/admin-user-list/edit-user/edit-user.c
     ProgressEditComponent,
     SortingPipe,
     AdminUserListComponent,
-    EditUserComponent
+    EditUserComponent,
+    NavigationComponent
   ],
     imports: [
         BrowserModule,
