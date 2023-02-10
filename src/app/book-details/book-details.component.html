@@ -4,12 +4,24 @@
       <img class="book-cover" src="{{book.coverURL}}" alt="Cover">
     </div>
     <div class="col-9">
-      <h3>{{book.Title}}</h3>
-      <p>by <b>{{book.Author}}</b></p>
-      <p>{{book.description}}</p>
-      <p><b>Genre: </b>{{book.Genre}}</p>
-      <p><b>Pages: </b>{{book.Pages}}</p>
-      <p><b>Publisher: </b>{{book.Publisher}}</p>
+      <div class="row">
+        <div class="col-9">
+          <h3>{{book.Title}}</h3>
+          <p>by <b>{{book.Author}}</b></p>
+        </div>
+        <div class="col-3 d-flex align-items-center">
+          <button class="btn btn-success w-100" *ngIf="!library.inLibrary(book)" (click)="library.addToLibrary(book)">
+            <i class="bi bi-book"></i> Add to Library
+          </button>
+          <button class="btn btn-light w-100" *ngIf="library.inLibrary(book)" (click)="library.removeFromLibrary(book)">
+            <i class="bi bi-book-fill"></i> Remove from Library
+          </button>
+        </div>
+        <p>{{book.description}}</p>
+        <p><b>Genre: </b>{{book.Genre}}</p>
+        <p><b>Pages: </b>{{book.Pages}}</p>
+        <p><b>Publisher: </b>{{book.Publisher}}</p>
+      </div>
     </div>
   </div>
 </div>

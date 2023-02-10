@@ -4,6 +4,7 @@ import {ApiService} from "../api.service";
 import {AuthService} from "../auth.service";
 import {Book} from "../model/book.model";
 import {BookBindPipe} from '../book-bind.pipe';
+import {LibraryService} from "../library.service";
 
 @Component({
   selector: 'app-book-details',
@@ -13,7 +14,7 @@ import {BookBindPipe} from '../book-bind.pipe';
 export class BookDetailsComponent {
   book !: Book;
 
-  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private auth: AuthService) {
+  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private auth: AuthService, public library: LibraryService) {
     this.api.Update();
   }
 
