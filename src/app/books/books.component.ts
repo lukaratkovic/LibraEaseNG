@@ -3,6 +3,7 @@ import {ApiService} from "../api.service";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
 import {Book} from "../model/book.model";
+import {LibraryService} from "../library.service";
 
 @Component({
   selector: 'app-books',
@@ -10,7 +11,7 @@ import {Book} from "../model/book.model";
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
-  constructor(public api : ApiService, public auth: AuthService, private router: Router) {
+  constructor(public api : ApiService, public auth: AuthService, private router: Router, public library : LibraryService) {
     api.Update();
   }
 
@@ -22,32 +23,5 @@ export class BooksComponent {
             this.router.navigate(['login']);
         });
     }
-  }
-
-  addToLibrary(book: Book) {
-    //Check if book exists in library but is inactive
-    let exists = false;
-    this.api.library.forEach(entry => {
-      if(entry.Book_ISBN == book.ISBN && entry.User_idUser==this.auth.user?.idUser) exists = true;
-    });
-    this.api.addToLibrary(book, this.auth.user, exists)
-      .subscribe(res => {
-        this.api.Update();
-      });
-  }
-
-  inLibrary(book: Book) {
-    let exists = false;
-    this.api.library.forEach(entry => {
-      if(entry.Book_ISBN == book.ISBN && entry.User_idUser == this.auth.user?.idUser && entry.status != 'inactive') exists = true;
-    });
-    return exists;
-  }
-
-  removeFromLibrary(book: Book) {
-    this.api.removeFromLibrary(book, this.auth.user)
-      .subscribe(res => {
-        this.api.Update();
-      });
   }
 }

@@ -16,10 +16,10 @@
       <td class="align-middle">{{book.Genre}}</td>
       <td class="align-middle">{{book.Pages}}</td>
       <td *ngIf="auth.isAuthenticated()" class="align-middle">
-        <button class="btn btn-light" (click)="addToLibrary(book)" title="Add to Library" *ngIf="!inLibrary(book)">
+        <button class="btn btn-light" (click)="library.addToLibrary(book)" title="Add to Library" *ngIf="!library.inLibrary(book)">
           <i class="bi bi-book"></i>
         </button>
-        <button class="btn btn-light text-secondary" (click)="removeFromLibrary(book)" title="Remove from Library" *ngIf="inLibrary(book)">
+        <button class="btn btn-light text-secondary" (click)="library.removeFromLibrary(book)" title="Remove from Library" *ngIf="library.inLibrary(book)">
           <i class="bi bi-book-fill"></i>
         </button>
       </td>
