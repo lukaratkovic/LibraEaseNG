@@ -3,15 +3,15 @@
     <thead>
     <tr>
       <th scope="col">Cover</th>
-      <th scope="col">Title</th>
-      <th scope="col">Author</th>
-      <th scope="col">Genre</th>
-      <th scope="col">Pages</th>
+      <th scope="col" class="sortable" (click)="setSort('Title')">Title</th>
+      <th scope="col" class="sortable" (click)="setSort('Author')">Author</th>
+      <th scope="col" class="sortable" (click)="setSort('Genre')">Genre</th>
+      <th scope="col" class="sortable" (click)="setSort('Pages')">Pages</th>
       <th scope="col"  style="width: 5vw" *ngIf="auth.isAuthenticated()"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let book of api.books | bookBind">
+    <tr *ngFor="let book of api.books | bookBind | sorting:sortingField:asc">
       <td class="align-middle">
         <a [routerLink]="['/book',book.ISBN]">
           <img src="{{book.coverURL}}" alt="Cover">

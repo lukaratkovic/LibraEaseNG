@@ -13,6 +13,8 @@ import {BookBindPipe} from "../shared/pipes/book-bind.pipe";
 })
 export class LibraryComponent {
   editingISBNs : string[] = [];
+  sortingField = 'Title';
+  asc = true;
 
   constructor(private router: Router, public api: ApiService, public auth: AuthService) {
     api.Update();
@@ -34,5 +36,15 @@ export class LibraryComponent {
 
   finishEdit(Book_ISBN: string) {
     this.editingISBNs.splice(this.editingISBNs.indexOf(Book_ISBN),1);
+  }
+
+  setSort(field: string) {
+    if(this.sortingField == field)
+      this.asc = !this.asc;
+    this.sortingField = field;
+  }
+
+  calcPercent(libEntry: any) {
+    return ((libEntry.Progress/libEntry.Pages)*100) | 0;
   }
 }

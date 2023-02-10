@@ -3,13 +3,13 @@
     <thead>
     <tr>
       <th scope="col">Cover</th>
-      <th scope="col">Title</th>
-      <th scope="col">Author</th>
+      <th scope="col" class="sortable" (click)="setSort('Title')">Title</th>
+      <th scope="col" class="sortable" (click)="setSort('Author')">Author</th>
       <th scope="col" style="width: 20vw">Progress</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let libEntry of api.library | libOfUser: auth.user | libraryStatus: 'all'">
+    <tr *ngFor="let libEntry of api.library | libOfUser: auth.user | libraryStatus: 'all'| sorting:sortingField:asc">
       <td class="align-middle">
         <a [routerLink]="['/book',libEntry.Book_ISBN]">
           <img src="{{libEntry.coverURL}}" alt="Cover">
@@ -24,7 +24,7 @@
       <td class="align-middle">
         <div *ngIf="!editingISBNs.includes(libEntry.Book_ISBN)">
           <span class="edit-progress" (click)="edit(libEntry.Book_ISBN)">
-            {{libEntry.Progress}}/{{libEntry.Pages}}
+            {{libEntry.Progress}}/{{libEntry.Pages}} ({{calcPercent(libEntry)}}%)
           </span>
         </div>
         <app-progress-edit [progress]="libEntry.Progress" [pages]="libEntry.Pages" [ISBN]="libEntry.Book_ISBN"

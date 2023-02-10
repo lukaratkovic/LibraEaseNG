@@ -25,6 +25,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { LibOfUserPipe } from './shared/pipes/lib-of-user.pipe';
 import { LibraryStatusPipe } from './shared/pipes/library-status.pipe';
 import { ProgressEditComponent } from './library/progress-edit/progress-edit.component';
+import { SortingPipe } from './shared/pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ProgressEditComponent } from './library/progress-edit/progress-edit.com
     BookDetailsComponent,
     LibOfUserPipe,
     LibraryStatusPipe,
-    ProgressEditComponent
+    ProgressEditComponent,
+    SortingPipe
   ],
     imports: [
         BrowserModule,

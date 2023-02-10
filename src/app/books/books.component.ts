@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {ApiService} from "../shared/services/api.service";
 import {AuthService} from "../shared/services/auth.service";
 import {Router} from "@angular/router";
-import {Book} from "../shared/model/book.model";
 import {LibraryService} from "../shared/services/library.service";
 
 @Component({
@@ -11,6 +10,9 @@ import {LibraryService} from "../shared/services/library.service";
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
+  sortingField = 'Title';
+  asc = true;
+
   constructor(public api : ApiService, public auth: AuthService, private router: Router, public library : LibraryService) {
     api.Update();
   }
@@ -23,5 +25,11 @@ export class BooksComponent {
             this.router.navigate(['login']);
         });
     }
+  }
+
+  setSort(field: string) {
+    if(this.sortingField == field)
+      this.asc = !this.asc;
+    this.sortingField = field;
   }
 }
