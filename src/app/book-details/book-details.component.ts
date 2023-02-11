@@ -34,4 +34,15 @@ export class BookDetailsComponent {
         this.book = bookBindPipe.transform([res])[0];
       });
   }
+
+  getBookProgress(book: Book){
+    let user = this.auth.user;
+    let progress = 0;
+    this.api.library.forEach(entry => {
+      if(entry.Book_ISBN == book.ISBN && entry.User_idUser == user?.idUser){
+        progress = entry.Progress;
+      }
+    });
+    return progress;
+  }
 }

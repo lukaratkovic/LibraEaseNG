@@ -9,7 +9,8 @@
           <h3>{{book.Title}}</h3>
           <p>by <b>{{book.Author}}</b></p>
         </div>
-        <div class="col-3 d-flex align-items-center" *ngIf="auth.isAuthenticated()">
+        <div class="col-3" [ngClass]="{'d-flex align-items-center': !library.inLibrary(book)}" *ngIf="auth.isAuthenticated()">
+          <p class="text-center mb-0" *ngIf="library.inLibrary(book)">My progress: {{getBookProgress(book)}}/{{book.Pages}}</p>
           <button class="btn btn-success w-100" *ngIf="!library.inLibrary(book)" (click)="library.addToLibrary(book)">
             <i class="bi bi-book"></i> Add to Library
           </button>
