@@ -12,6 +12,8 @@ export class AdminPublisherListComponent {
   editVisible : boolean = false;
   isEditing : boolean = false;
   currentPublisher !: Publisher;
+  sortingField = 'Publisher';
+  asc = true;
 
   constructor(public api : ApiService) {
     api.Update();
@@ -63,5 +65,9 @@ export class AdminPublisherListComponent {
           });
       }
     });
+  }
+
+  setSort() {
+      this.asc = !this.asc;
   }
 }

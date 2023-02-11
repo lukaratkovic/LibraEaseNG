@@ -12,6 +12,8 @@ export class AdminAuthorListComponent {
   editVisible: boolean = false;
   isEditing: boolean = false;
   currentAuthor !: Author;
+  sortingField = 'Surname';
+  asc = true;
   constructor(public api : ApiService) {
     api.Update();
   }
@@ -62,5 +64,11 @@ export class AdminAuthorListComponent {
           });
       }
     });
+  }
+
+  setSort(field: string) {
+    if(this.sortingField == field)
+      this.asc = !this.asc;
+    this.sortingField = field;
   }
 }

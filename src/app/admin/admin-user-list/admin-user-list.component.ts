@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {ApiService} from "../../shared/services/api.service";
 import {User} from "../../shared/model/user.model";
 import {AuthService} from "../../shared/services/auth.service";
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import Swal from "sweetalert2";
 
 @Component({
@@ -14,6 +13,8 @@ export class AdminUserListComponent {
   users !: User[];
   currentUser !: User;
   editing : boolean = false;
+  sortingField = 'Title';
+  asc = true;
 
   constructor(public api : ApiService, public auth: AuthService) {
     api.Update();
@@ -57,5 +58,10 @@ export class AdminUserListComponent {
 
   finishEdit() {
     this.editing = false;
+  }
+
+  setSort(field: string) {
+    this.asc = !this.asc;
+    this.sortingField = field;
   }
 }

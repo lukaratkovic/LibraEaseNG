@@ -12,6 +12,8 @@ export class AdminBookListComponent {
   editVisible: boolean = false;
   isEditing: boolean = false;
   currentBook !: Book;
+  sortingField = 'ISBN';
+  asc = true;
   constructor(public api : ApiService) {
     api.Update();
   }
@@ -44,5 +46,11 @@ export class AdminBookListComponent {
           .subscribe(()=>this.api.Update());
       }
     });
+  }
+
+  setSort(field: string) {
+    if(this.sortingField == field)
+      this.asc = !this.asc;
+    this.sortingField = field;
   }
 }

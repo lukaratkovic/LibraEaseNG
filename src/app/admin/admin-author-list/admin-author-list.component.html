@@ -2,13 +2,13 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Surname</th>
+      <th scope="col" class="sortable" (click)="setSort('Name')">Name</th>
+      <th scope="col" class="sortable" (click)="setSort('Surname')">Surname</th>
       <th style="width: 10vw"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let author of api.authors">
+    <tr *ngFor="let author of api.authors | sorting:sortingField:asc">
       <td class="align-middle">{{author.Name}}</td>
       <td class="align-middle">{{author.Surname}}</td>
       <td class="align-middle">

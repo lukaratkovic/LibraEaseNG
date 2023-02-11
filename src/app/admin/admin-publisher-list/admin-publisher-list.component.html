@@ -2,12 +2,12 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">Publisher</th>
+      <th scope="col" class="sortable" (click)="setSort()">Publisher</th>
       <th style="width: 10vw"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let publisher of api.publishers">
+    <tr *ngFor="let publisher of api.publishers | sorting:'Name':asc">
       <td class="align-middle">{{publisher.Name}}</td>
       <td class="align-middle">
         <button class="btn btn-primary" (click)="onEdit(publisher)"><i class="bi bi-pencil-square"></i></button>

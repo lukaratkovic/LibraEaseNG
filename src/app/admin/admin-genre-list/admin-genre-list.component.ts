@@ -12,6 +12,7 @@ export class AdminGenreListComponent {
   editVisible : boolean = false;
   isEditing : boolean = false;
   currentGenre !: Genre;
+  asc = true;
 
   constructor(public api : ApiService) {
     api.Update();
@@ -63,5 +64,9 @@ export class AdminGenreListComponent {
           });
       }
     });
+  }
+
+  setSort() {
+    this.asc = !this.asc;
   }
 }
