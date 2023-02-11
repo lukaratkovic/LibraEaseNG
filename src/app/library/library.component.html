@@ -9,6 +9,11 @@
     </tr>
     </thead>
     <tbody>
+    <tr *ngIf="(api.library | libOfUser: auth.user | libraryStatus).length == 0">
+      <td colspan="4" class="text-center text-muted fst-italic">
+        Your library is empty. Go to the Books tab to add books.
+      </td>
+    </tr>
     <tr *ngFor="let libEntry of api.library | libOfUser: auth.user | libraryStatus | sorting:sortingField:asc">
       <td class="align-middle">
         <a [routerLink]="['/book',libEntry.Book_ISBN]">
