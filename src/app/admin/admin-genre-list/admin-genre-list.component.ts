@@ -42,7 +42,25 @@ export class AdminGenreListComponent {
     }).then((result)=>{
       if(result.isConfirmed){
         this.api.deleteGenre(genre.idGenre)
-          .subscribe(res => this.api.Update());
+          .subscribe(res => {
+            if(res.status == 'OK') this.api.Update();
+            else{
+              Swal.mixin({
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              }).fire({
+                icon: 'error',
+                title: "Could not delete. Delete all books with genre first!"
+              });
+            }
+          });
       }
     });
   }

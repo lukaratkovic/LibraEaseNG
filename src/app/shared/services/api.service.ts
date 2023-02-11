@@ -59,8 +59,8 @@ export class ApiService {
   public editAuthor(author : Author){
     return this.http.put(this.apiLink+'/api/author', {id: author.idAuthor, name: author.Name, surname: author.Surname});
   }
-  public deleteAuthor(idAuthor : number){
-    return this.http.delete(`${this.apiLink}/api/author/${idAuthor}`);
+  public deleteAuthor(idAuthor : number) : Observable<{status: string, affectedRows ?: number}>{
+    return this.http.delete<{status: string, affectedRows ?: number}>(`${this.apiLink}/api/author/${idAuthor}`);
   }
 
   getAuthorById(id:number) : Observable<Author>{
@@ -76,8 +76,8 @@ export class ApiService {
   public editGenre(genre : Genre){
     return this.http.put(this.apiLink+'/api/genre',{id: genre.idGenre, genre: genre.Genre});
   }
-  public deleteGenre(idGenre : number){
-    return this.http.delete(`${this.apiLink}/api/genre/${idGenre}`);
+  public deleteGenre(idGenre : number) : Observable<{status:string, affectedRows?:number}> {
+    return this.http.delete<{status:string, affectedRows?:number}>(`${this.apiLink}/api/genre/${idGenre}`);
   }
 
   private getPublishers() : Observable<Publisher[]>{
@@ -89,8 +89,8 @@ export class ApiService {
   public editPublisher(publisher : Publisher){
     return this.http.put(this.apiLink+'/api/publisher', {id: publisher.idPublisher, name: publisher.Name});
   }
-  public deletePublisher(idPublisher : number) {
-    return this.http.delete(`${this.apiLink}/api/publisher/${idPublisher}`);
+  public deletePublisher(idPublisher : number) : Observable<{status:string, affectedRows?:number}> {
+    return this.http.delete<{status:string, affectedRows?:number}>(`${this.apiLink}/api/publisher/${idPublisher}`);
   }
 
   private getLibrary() : Observable<LibraryEntry[]>{
