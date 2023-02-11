@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../shared/services/auth.service";
 import {ApiService} from "../shared/services/api.service";
-import {LibraryEntry} from "../shared/model/libraryEntry.model";
-import {Book} from "../shared/model/book.model";
-import {BookBindPipe} from "../shared/pipes/book-bind.pipe";
 
 @Component({
   selector: 'app-library',

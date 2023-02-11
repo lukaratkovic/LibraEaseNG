@@ -6,9 +6,9 @@ import {LibraryEntry} from "../model/libraryEntry.model";
 })
 export class LibraryStatusPipe implements PipeTransform {
 
-  transform(library: LibraryEntry[], filter: string): LibraryEntry[] {
+  transform(library: LibraryEntry[]): LibraryEntry[] {
     return library.filter(entry => {
-      return entry.status == 'reading' || entry.status=='finished' && filter=='all';
+      return entry.status == 'reading';
     });
   }
 
