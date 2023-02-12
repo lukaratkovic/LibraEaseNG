@@ -44,11 +44,21 @@ export class AdminUserListComponent {
   }
 
   deleteUser(user: User) {
-    this.api.deleteUser(user.idUser)
-      .subscribe((res)=> {
-        this.api.getUsers()
-          .subscribe(res => this.users = res);
-      });
+    Swal.fire({
+      title: `Are you sure you wish to delete user '${user.username}'?`,
+      confirmButtonText: 'Delete',
+      confirmButtonColor: '#dc3545',
+      showCancelButton: true,
+      cancelButtonText: 'Cancel'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.api.deleteUser(user.idUser)
+          .subscribe((res)=> {
+            this.api.getUsers()
+              .subscribe(res => this.users = res);
+          });
+      }
+    });
   }
 
   onEdit(user: User) {
