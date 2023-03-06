@@ -1,6 +1,6 @@
 # LibraEaseNG
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1. This repository contains the Angular frontend for [LibraEase](https://github.com/lukaratkovic/LibraEase), a personal library web app made as a final project for the Advanced JavaScript programming course at Zagreb University of Applied Sciences.
 
 ## Development server
 
